@@ -50,6 +50,12 @@ import ErrorReporter, { CaptureException } from 'react-error-reporter';
 
 Provides `captureException` to the `context`. Your app must be wrapped using this component.
 
+```js
+type Props = {
+  captureException(error: Error, ...args: any): void,
+}
+```
+
 ### `<CaptureException />`
 
 Captures exception, passing `error` and `extra` to `captureException` handler. This components renders `null`.
