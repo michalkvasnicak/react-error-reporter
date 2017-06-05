@@ -1,6 +1,6 @@
 # react-error-reporter
 
-[![npm](https://img.shields.io/npm/v/react-apollo-graphql.svg)](https://www.npmjs.com/package/react-error-reporter)
+[![npm](https://img.shields.io/npm/v/react-error-reporter.svg)](https://www.npmjs.com/package/react-error-reporter)
 [![CircleCI](https://circleci.com/gh/michalkvasnicak/react-error-reporter.svg?style=svg)](https://circleci.com/gh/michalkvasnicak/react-error-reporter)
 
 ![gzip size](http://img.badgesize.io/https://unpkg.com/react-apollo-graphql/dist/react-error-reporter.min.js?compression=gzip&label=gzip%20size)
