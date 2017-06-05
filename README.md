@@ -3,8 +3,8 @@
 [![npm](https://img.shields.io/npm/v/react-error-reporter.svg)](https://www.npmjs.com/package/react-error-reporter)
 [![CircleCI](https://circleci.com/gh/michalkvasnicak/react-error-reporter.svg?style=svg)](https://circleci.com/gh/michalkvasnicak/react-error-reporter)
 
-![gzip size](http://img.badgesize.io/https://unpkg.com/react-apollo-graphql/dist/react-error-reporter.min.js?compression=gzip&label=gzip%20size)
-![size](http://img.badgesize.io/https://unpkg.com/react-apollo-graphql/dist/react-error-reporter.min.js?label=size)
+![gzip size](http://img.badgesize.io/https://unpkg.com/react-error-reporter/dist/react-error-reporter.min.js?compression=gzip&label=gzip%20size)
+![size](http://img.badgesize.io/https://unpkg.com/react-error-reporter/dist/react-error-reporter.min.js?label=size)
 ![module formats: umd, cjs, esm](https://img.shields.io/badge/module%20formats-umd%2C%20cjs%2C%20esm-green.svg)
 
 Simple error reporting using React components.
