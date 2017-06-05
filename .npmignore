@@ -1,0 +1,10 @@
+src
+coverage
+*.test.js
+rollup.*
+.watchmanconfig
+.gitignore
+.flowconfig
+bundle-stats.html
+.editorconfig
+circle.yml

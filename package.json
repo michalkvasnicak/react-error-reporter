@@ -1,0 +1,163 @@
+{
+  "name": "react-error-reporter",
+  "version": "1.0.0-rc.1",
+  "description": "Report catched errors using React components. Report them to sentry, etc...",
+  "main": "lib/index.js",
+  "jsnext:main": "dist/react-error-reporter.es.js",
+  "module": "dist/react-error-reporter.es.js",
+  "repository": "https://github.com/michalkvasnicak/react-error-reporter",
+  "author": "Michal Kvasničák",
+  "license": "MIT",
+  "peerDependencies": {
+    "prop-types": "15.* || ^15.0.0 || ^16.0.0-alpha",
+    "react": "15.* || ^15.0.0 || ^16.0.0-alpha"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-jest": "^20.0.3",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-react-flow-props-to-prop-types": "^0.8.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.5",
+    "babel-preset-env": "^1.5.1",
+    "babel-preset-jest": "^20.0.3",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "enzyme": "^2.8.2",
+    "eslint": "^3.19.0",
+    "eslint-config-prettier": "^2.1.1",
+    "eslint-plugin-flowtype": "^2.34.0",
+    "eslint-plugin-prettier": "^2.1.1",
+    "flow-bin": "^0.47.0",
+    "flow-copy-source": "^1.1.0",
+    "jest": "^20.0.4",
+    "lint-staged": "^3.6.0",
+    "pre-commit": "^1.2.2",
+    "prettier": "^1.4.2",
+    "prop-types": "^15.5.10",
+    "react": "^15.5.4",
+    "react-addons-test-utils": "^15.5.1",
+    "react-dom": "^15.5.4",
+    "react-test-renderer": "^15.5.4",
+    "rimraf": "^2.6.1",
+    "rollup": "^0.42.0",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-commonjs": "^8.0.2",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-uglify": "^2.0.1",
+    "rollup-plugin-visualizer": "^0.2.1"
+  },
+  "babel": {
+    "presets": [
+      "react"
+    ],
+    "plugins": [
+      "transform-class-properties",
+      [
+        "transform-object-rest-spread",
+        {
+          "useBuiltIns": true
+        }
+      ]
+    ],
+    "env": {
+      "production": {
+        "presets": [
+          [
+            "env",
+            {
+              "loose": true
+            }
+          ]
+        ],
+        "plugins": [
+          "add-module-exports",
+          "react-flow-props-to-prop-types",
+          "transform-flow-strip-types",
+          "transform-class-properties"
+        ]
+      },
+      "test": {
+        "presets": [
+          [
+            "env",
+            {
+              "targets": {
+                "node": "current"
+              }
+            }
+          ],
+          "jest"
+        ]
+      }
+    }
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "jest": true,
+      "node": true
+    },
+    "extends": [
+      "plugin:flowtype/recommended",
+      "prettier"
+    ],
+    "plugins": [
+      "flowtype",
+      "prettier"
+    ],
+    "rules": {
+      "flowtype/generic-spacing": "off",
+      "prettier/prettier": [
+        "error",
+        {
+          "trailingComma": "all",
+          "singleQuote": true,
+          "printWidth": 100,
+          "tabWidth": 2
+        }
+      ]
+    }
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>[/\\\\](build|docs|node_modules|scripts)[/\\\\]",
+      "flow\\.test\\.(js|jsx)$"
+    ],
+    "testEnvironment": "jsdom",
+    "testURL": "http://localhost",
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
+    ],
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "pre-commit": "lint-staged",
+  "scripts": {
+    "build": "npm run build:lib && npm run build:dist && npm run build:flow",
+    "prebuild:dist": "rimraf dist/*",
+    "build:dist": "rollup -c && rollup -c --environment PRODUCTION",
+    "prebuild:lib": "rimraf lib/*",
+    "build:lib": "BABEL_ENV=production babel --ignore '*.test.js' --out-dir lib src",
+    "build:flow": "flow-copy-source -v -i *.test.js src lib",
+    "lint-staged": "lint-staged",
+    "prepublishOnly": "npm test && npm run lint && npm run build",
+    "flow": "flow check",
+    "lint": "eslint src",
+    "test": "jest"
+  }
+}
