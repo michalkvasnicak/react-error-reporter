@@ -12,7 +12,7 @@ type Props = {
 export type { Context };
 export { CaptureException, contextTypes };
 
-export default class ErrorReporter extends React.Component<void, Props, void> {
+export default class ErrorReporter extends React.Component<Props, void> {
   static childContextTypes = contextTypes;
 
   getChildContext = () => ({

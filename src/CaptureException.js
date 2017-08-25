@@ -10,7 +10,7 @@ type Props = {
   extra?: ?Array<any>,
 };
 
-export default class CaptureException extends React.Component<void, Props, void> {
+export default class CaptureException extends React.Component<Props, void> {
   static contextTypes = contextTypes;
 
   context: Context;
