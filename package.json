@@ -1,6 +1,6 @@
 {
   "name": "react-error-reporter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Report catched errors using React components. Report them to sentry, etc...",
   "main": "lib/index.js",
   "jsnext:main": "dist/react-error-reporter.es.js",
